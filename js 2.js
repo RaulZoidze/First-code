@@ -1,10 +1,10 @@
 let     money = 100000,
-        income = 500000 + ' $' +' такси :D', 
-        addExpenses = 20000 + ' Квартира' + ',' + ' 50000 Машина' + ',' + '100000000 Лецензия П.О' ,
+        income = 'такси', 
+        addExpenses = ' Квартира,Машина,Лезензия',
         deposit = true,
-        mission = 9999999999999 + '$',
+        mission = 9999999999999,
         period = 12,
-        budgetDay = money;
+        budgetDay = money / 30;
         
      console.log (typeof money)
      console.log (money +'$' + ' доход за месяц') 
