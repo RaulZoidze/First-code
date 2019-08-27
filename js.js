@@ -1,10 +1,10 @@
 'use strict'
-let     COSTS1 ,
-        COSTS2 ,
-        COSTS3 ,
-        COSTS4 ,
-        money ,
-        addExpenses  ,
+let     costsFirst1= prompt ("Какие обязательные ежемесячные расходы у вас есть?") ,
+        costsFirst2= prompt ("Во сколько это обойдется?") ,
+        costsFirst3= prompt ("Какие обязательные ежемесячные расходы у вас есть?") ,
+        costsFirst4= prompt ("Во сколько это обойдется?") ,
+        money= prompt ("Ваш месячный доход?") ,
+        addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую") ,
         income = 50, 
         deposit ,
         mission = 1000,
@@ -13,31 +13,13 @@ let     COSTS1 ,
         budgetMonth,
         budgetDay;  
         
-        money= prompt ("Ваш месячный доход?");
-        addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую");
         
+        
+        
+        budgetMonth = money - costsFirst2 - costsFirst4;
 
-        console.log(money);
-        console.log (addExpenses.split(' '));
+        budgetDay = budgetMonth / 30;
 
-        console.log( deposit = confirm("Есть ли у вас депозит в банке?"));
-        console.log (typeof money);
-        console.log (typeof income);
-        console.log (typeof deposit);
-        console.log( COSTS1 = prompt ("Какие обязательные ежемесячные расходы у вас есть?"));
-        console.log( COSTS2 = prompt ("Во сколько это обойдется?"));
-        console.log( COSTS3 = prompt ("Какие обязательные ежемесячные расходы у вас есть?"));
-        console.log( COSTS4 = prompt ("Во сколько это обойдется?"));
-
-      budgetMonth = money - COSTS2 - COSTS4;
-
-      budgetDay = budgetMonth / 30;
-
-        console.log(Number(budgetMonth));
-        console.log(Math.ceil((Number(budgetMonth / mission))));
-        console.log(Math.floor(budgetDay));
-
-       
 
         if (budgetDay > 800){  
             output = "Высокий уровень дохода"  ;     
@@ -52,3 +34,28 @@ let     COSTS1 ,
             output = "Что то пошло не так";
         }
          console.log(output);
+
+
+
+
+        console.log(money);
+        console.log (addExpenses.split(' '));
+
+        console.log( deposit = confirm("Есть ли у вас депозит в банке?"));
+        console.log (typeof money);
+        console.log (typeof income);
+        console.log (typeof deposit);
+        console.log( costsFirst1);
+        console.log( costsFirst2);
+        console.log( costsFirst3);
+        console.log( costsFirst4);
+
+
+
+        console.log(Number(budgetMonth));
+        console.log(Math.ceil((Number(budgetMonth / mission))));
+        console.log(Math.floor(budgetDay));
+
+       
+
+
