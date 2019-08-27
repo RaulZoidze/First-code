@@ -24,10 +24,10 @@ let     money= prompt ("Ваш месячный доход?") ,
         if (budgetDay > 800){  
             output = "Высокий уровень дохода"  ;     
         }
-        else if (budgetDay > 300 && budgetDay < 800 ) {
+        else if (budgetDay >= 300 && budgetDay < 800 ) {
             output = "Средний уровень дохода" ;
         }
-        else if (budgetDay > 0 && budgetDay < 300) {
+        else if (budgetDay >= 0 && budgetDay < 300) {
             output = "Низкий уровень дохода" ;
         }
         else  {
