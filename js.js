@@ -21,7 +21,7 @@ let     money= prompt ("Ваш месячный доход?") ,
         budgetDay = budgetMonth / 30;
 
 
-        if (budgetDay > 800){  
+        if (budgetDay >= 800){  
             output = "Высокий уровень дохода"  ;     
         }
         else if (budgetDay >= 300 && budgetDay < 800 ) {
