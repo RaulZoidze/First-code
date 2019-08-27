@@ -1,10 +1,10 @@
 'use strict'
-let     costsFirst1= prompt ("Какие обязательные ежемесячные расходы у вас есть?") ,
+let     money= prompt ("Ваш месячный доход?") ,
+        addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую") ,
+        costsFirst1= prompt ("Какие обязательные ежемесячные расходы у вас есть?") ,
         costsFirst2= prompt ("Во сколько это обойдется?") ,
         costsFirst3= prompt ("Какие обязательные ежемесячные расходы у вас есть?") ,
         costsFirst4= prompt ("Во сколько это обойдется?") ,
-        money= prompt ("Ваш месячный доход?") ,
-        addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую") ,
         income = 50, 
         deposit ,
         mission = 1000,
@@ -51,11 +51,8 @@ let     costsFirst1= prompt ("Какие обязательные ежемеся
         console.log( costsFirst4);
 
 
-
+       
         console.log(Number(budgetMonth));
         console.log(Math.ceil((Number(budgetMonth / mission))));
         console.log(Math.floor(budgetDay));
-
-       
-
 
