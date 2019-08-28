@@ -12,6 +12,30 @@ let     money= prompt ("Ваш месячный доход?") ,
         budgetMonth,
         budgetDay;  
 
+        console.log("месячный доход :" + Number(money));
+        console.log (addExpenses.split(' '));
+
+        console.log("депозит в банке :" + deposit);
+       
+        //console.log( "обязательные расходы :" + costsFirst1);
+        //console.log( "стоимость обязательных расходов :" + Number(costsFirst2));
+        //console.log( "обязательные расходы :" + costsFirst3);
+        //console.log( "стоимость обязательных расходов :" + Number(costsFirst4));
+
+        //budgetMonth = money - costsFirst2 - costsFirst4;
+        //budgetDay = budgetMonth / 30;
+        
+
+        //console.log("месячный бюджет :" + Number(budgetMonth));
+        //console.log("сколько до цели :" + Math.ceil(Number(budgetMonth / mission)));
+        //console.log("дневной бюджет :" + Math.floor(budgetDay));
+
+
+
+
+
+
+
 
         let sum ;
             function getExpensesMonth () {
