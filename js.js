@@ -32,15 +32,16 @@
             if (i === 1) {
               costsFirst3= prompt ("Какие обязательные ежемесячные расходы у вас есть?");
            }
-           }
+           
         let count;   
             do { 
               count = prompt ("Во сколько это обойдется?")
            }
             while (isNaN (count) || count == null || count == '' );
             sum += +count;
+           }
            return sum;
-            }
+           }
            expensesAmount = getExpensesMonth();
            console.log("сумма обязательных расходов :" + expensesAmount);
 
