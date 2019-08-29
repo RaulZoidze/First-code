@@ -1,5 +1,5 @@
 'use strict'
-let     money ,
+    let money ,
         addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую") ,
         costsFirst1,
         costsFirst3,
@@ -8,25 +8,25 @@ let     money ,
         mission = 10000,
         period = 6,
         budgetMonth,
-        budgetDay;  
-
-
-let     start = function () {
+        budgetDay,
+        expensesAmount; 
+        budgetMonth = money - expensesAmount;
+        budgetDay = budgetMonth / 30;
+                
+        // узнаем бюджет и валидность
+        let   start = function () {
           do {
           money= +prompt ("Ваш месячный доход?",50000 );
          }
         
           while(isNaN (money) || money === '' || money === null) {}
-};
-        start();
+         };
+         start();
 
 
-        // возвращаем обязательные расходы
+        // возвращаем обязательные расходы + валидность
         let getExpensesMonth = function () {
           let sum=0;
-
-          
-
           for (let i = 0; i < 2;i++) {
             if (i === 0) {
               costsFirst1= prompt ("Какие обязательные ежемесячные расходы у вас есть?");
@@ -34,29 +34,26 @@ let     start = function () {
             if (i === 1) {
               costsFirst3= prompt ("Какие обязательные ежемесячные расходы у вас есть?");
             }
-          }
-          do { 
+           }
+           do { 
             sum += +prompt ("Во сколько это обойдется?")
             sum += +prompt ("Во сколько это обойдется?")
-          }
-          while (isNaN (sum) || sum === null ) {};
-        return sum;
-          
-        }
-          let expensesAmount = getExpensesMonth();
+           }
+           while (isNaN (sum) || sum === null ) {};
+           return sum;
+           }
+            expensesAmount = getExpensesMonth();
             console.log("сумма обязательных расходов :" + expensesAmount);
 
-
-
-          //возвращаем накопления за месяц
+            //возвращаем накопления за месяц
         let accumulatedMonth ;
 
         function getAccumulatedMonth () {
-          accumulatedMonth = money - expensesAmount;
+            accumulatedMonth = money - expensesAmount;
                 
           }
-          getAccumulatedMonth();
-          console.log("накопления за месяц :" + accumulatedMonth);
+            getAccumulatedMonth();
+            console.log("накопления за месяц :" + accumulatedMonth);
 
         let getMonth ;
             //возвращаем период до цели
@@ -68,19 +65,11 @@ let     start = function () {
           }
           else {
             console.log("цель будет достигнута за  :" + Math.floor(getMonth) + " месяца");}
-
           }
           getTargetMonth();
           
 
-            //возвращаем тип данных
-        let showTypeOf = function (data) {
-            console.log(data,typeof(data));
-            
-        }  
-        showTypeOf(money);
-        showTypeOf(income);
-        showTypeOf(deposit);
+      
 
           //возвращаем уровень дохода
         let  getStatusIncome = function () {
@@ -96,9 +85,7 @@ let     start = function () {
         }
         };
 
-        //Дневной бюджет
-            budgetMonth = money - expensesAmount;
-            budgetDay = budgetMonth / 30; 
+       
 
         if (budgetDay < 0  ) {
           console.log("дневной бюджет :Что-то пошло не так")
@@ -106,23 +93,16 @@ let     start = function () {
         else {
           console.log("дневной бюджет :" + Math.floor(budgetDay));
         };
-
+     
+        //возвращаем тип данных
+        let showTypeOf = function (data) {
+            console.log(data,typeof(data));                        
+            }  
+            showTypeOf(money);
+            showTypeOf(income);
+            showTypeOf(deposit);
             //лог
             console.log(getStatusIncome()); 
             console.log("месячный доход :" + +money);
             console.log (addExpenses.split(' '));
-    
             console.log("депозит в банке :" + deposit);
-           
-            /*console.log( "обязательные расходы :" + costsFirst1);
-            console.log( "стоимость обязательных расходов :" + Number(costsFirst2));
-            console.log( "обязательные расходы :" + costsFirst3);
-            console.log( "стоимость обязательных расходов :" + Number(costsFirst4));*/
-    
-            
-            
-    
-           // console.log("месячный бюджет :" + Number(budgetMonth));
-            //console.log("сколько до цели :" + Math.ceil(Number(budgetMonth / mission)));
-           
-    
