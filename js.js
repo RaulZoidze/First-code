@@ -10,8 +10,7 @@
         budgetMonth,
         budgetDay,
         expensesAmount; 
-        budgetMonth = money - expensesAmount;
-        budgetDay = budgetMonth / 30;
+        
                 
         // узнаем бюджет и валидность
         let   start = function () {
@@ -34,15 +33,19 @@
               costsFirst3= prompt ("Какие обязательные ежемесячные расходы у вас есть?");
            }
            }
+        let count;   
             do { 
-              sum += +prompt ("Во сколько это обойдется?")
-              sum += +prompt ("Во сколько это обойдется?")
+              count = prompt ("Во сколько это обойдется?")
            }
-            while (isNaN (sum) || sum === null ) {};
+            while (isNaN (count) || count == null || count === '' );
+            sum += +count;
            return sum;
             }
            expensesAmount = getExpensesMonth();
            console.log("сумма обязательных расходов :" + expensesAmount);
+
+
+        
 
             //возвращаем накопления за месяц
         let accumulatedMonth ;
@@ -83,6 +86,8 @@
            };
 
        
+           budgetMonth = money - expensesAmount;
+           budgetDay = budgetMonth / 30;
 
            if (budgetDay < 0  ) {
           console.log("дневной бюджет :Что-то пошло не так")
@@ -90,7 +95,11 @@
            else {
           console.log("дневной бюджет :" + Math.floor(budgetDay));
            };
-     
+
+
+          
+
+
         //возвращаем тип данных
         let showTypeOf = function (data) {
            console.log(data,typeof(data));                        
