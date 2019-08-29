@@ -37,9 +37,9 @@ let getExpensesMonth = function () {
     }
     while (isNaN(count) || count == null || count == '');
     sum += +count;
-  }
+    }
   return sum;
-};
+    };
 
 expensesAmount = getExpensesMonth();
 
