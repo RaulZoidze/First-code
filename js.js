@@ -17,7 +17,7 @@
          do {
           money= +prompt ("Ваш месячный доход?",50000 );
          }
-         while(isNaN (money) || money === '' || money === null) {}
+         while(isNaN (money) || money == '' || money == null) {}
          };
          start();
 
@@ -37,7 +37,7 @@
             do { 
               count = prompt ("Во сколько это обойдется?")
            }
-            while (isNaN (count) || count == null || count === '' );
+            while (isNaN (count) || count == null || count == '' );
             sum += +count;
            return sum;
             }
