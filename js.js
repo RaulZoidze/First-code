@@ -57,20 +57,16 @@ let appData = {
       } ,
       getExpensesMonth:function () {
 
-        for (var key of count) {
-         console.log(count + [count]);
-         
-          
-          
+        for (var key in appData.expenses) {
+          appData.expensesMonth += +appData.expenses[key];
         };
-
-
       },
 
       getAccumulatedMonth:function() {
         accumulatedMonth = money - expensesAmount;
         budgetMonth=money- expensesAmount,
         budgetDay=budgetMonth /30;        //1111111
+        expensesAmount=appData.getExpensesMonth();
       },
 
       //возвращаем период до цели
@@ -103,8 +99,8 @@ getStatusIncome:function () {
 };
 
 appData.asking();
-expensesAmount=appData.getExpensesMonth();
-//appData.getAccumulatedMonth();
+
+appData.getAccumulatedMonth();
 appData.getTargetMonth();
 appData.getStatusIncome();
 console.log(appData.expenses);
@@ -115,11 +111,13 @@ console.log(appData.expenses);
 //лог
 console.log(appData.getAccumulatedMonth);
 console.log(appData.getTargetMonth);
-console.log("сумма обязательных расходов :" + expensesAmount);
+console.log("сумма обязательных расходов :" + appData.expenses);
 console.log("накопления за месяц :" + accumulatedMonth);
 console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());
 console.log("месячный доход :", +money);
 console.log("депозит в банке :" + appData.deposit);
+
+
 
 
