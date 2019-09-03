@@ -19,6 +19,8 @@ let expensesAmount,
     budgetDay;    
 
 let count;
+
+      
 let appData = {
     income: {},
     addIncome: [],
@@ -65,31 +67,32 @@ let appData = {
       },
           //считает (должно считать) бюджет в день || бюджет в месяц
       getBudget:function() {
-        appData.budgetMonth = money - appData.expenses,
+        appData.budgetMonth = money - appData.expensesMonth,
         appData.budgetDay=appData.budgetMonth /30;
       },
 
       //возвращаем период до цели
 
       getTargetMonth:function () {
-        accumulatedMonth = money - appData.expenses;     //накопления за месяц 
+        accumulatedMonth = money - appData.expensesMonth;     //накопления за месяц 
         getMonth = appData.mission / accumulatedMonth;
        if (getMonth < 0) {
          return "цель не будет достигнута ";
     }  else {
           return "цель будет достигнута за  :" + Math.floor(getMonth) + " месяца";
     }
+    
   },
 
   //возвращаем уровень дохода
 getStatusIncome:function () {
 
-  if (budgetMonth >= 800) {
+  if (appData.budgetMonth >= 800) {
     return ("Высокий уровень дохода");
-  } else if (budgetMonth <= 300 && budgetMonth > 800) {
+  } else if (appData.budgetMonth >= 300 && appData.budgetMonth < 800) {
     return ("Средний уровень дохода"); 
   }
-    else if (budgetMonth < 300 && budgetMonth <= 0) {  
+    else if (appData.budgetMonth < 300 && appData.budgetMonth <= 0) {  
       return ("Низкий уровень дохода");               //!!!!!
   } else { 
     return ("Что то пошло не так");
@@ -105,23 +108,14 @@ appData.getBudget();    //GETBUDGET
 appData.getTargetMonth();
 appData.getStatusIncome();
 //лог
+console.log(appData.getTargetMonth());
 console.log(appData.expenses);// вывод вопрос:ответ (расходы)
 console.log("сумма обязательных расходов :" + appData.expensesMonth);
-console.log(appData.getExpenesMonth);
-console.log("накопления за месяц :" + accumulatedMonth); //!!!!
-
-
-
-console.log("budget month :" + appData.budgetMonth);
-console.log("budget Day :" + appData.budgetDay);
-
-//  Нет информации нужно ли это     console.log(appData.getTargetMonth);
-
-
-console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());
-console.log("месячный доход :", +money);
-console.log("депозит в банке :" + appData.deposit);
+
+    for (let key in appData) {
+         console.log('Наша программа включает в себя данные: ' + key + ': ' + appData[key])
+}
 
 
 
