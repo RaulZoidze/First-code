@@ -32,12 +32,13 @@ let appData = {
     budgetMonth:0,
     expensesMonth:0,
     asking: function(){
+      //вопросы 
       let addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую");
           appData.addExpenses=addExpenses.toLowerCase().split(',');
           appData.deposit = confirm("Есть ли у вас депозит в банке?");
 
           let str;
-              
+              // цикл,задает вопрос:ответ 2 раза
           let sum = 0;
           for (let i = 0; i < 2; i++) {
            if (i === 0) {
@@ -55,23 +56,23 @@ let appData = {
           while (isNaN(count) || count == null || count == '');
           appData.expenses[str] = count;
           }
-      } ,
+      } , //считает сумму обязательных расходов
       getExpensesMonth:function () {
 
         for (var key in appData.expenses) {
           appData.expensesMonth += +appData.expenses[key];
         };
       },
-
-      getAccumulatedMonth:function() {
-        appData.budgetMonth=money- expensesAmount,
+          //считает (должно считать) бюджет в день || бюджет в месяц
+      getBudget:function() {
+        appData.budgetMonth = money - appData.expenses,
         appData.budgetDay=appData.budgetMonth /30;
-        accumulatedMonth = money - expensesAmount;                                                     
       },
 
       //возвращаем период до цели
 
       getTargetMonth:function () {
+        accumulatedMonth = money - appData.expenses;     //накопления за месяц 
         getMonth = appData.mission / accumulatedMonth;
        if (getMonth < 0) {
          return "цель не будет достигнута ";
@@ -99,25 +100,28 @@ getStatusIncome:function () {
 };
 
 appData.asking();
-
-appData.getAccumulatedMonth();
+appData.getExpensesMonth();
+appData.getBudget();    //GETBUDGET
 appData.getTargetMonth();
 appData.getStatusIncome();
-console.log(appData.expenses);
-
-
-
-
 //лог
-console.log(appData.getAccumulatedMonth);
-console.log(appData.getTargetMonth);
+console.log(appData.expenses);// вывод вопрос:ответ (расходы)
 console.log("сумма обязательных расходов :" + appData.expensesMonth);
-console.log("накопления за месяц :" + accumulatedMonth);
+console.log(appData.getExpenesMonth);
+console.log("накопления за месяц :" + accumulatedMonth); //!!!!
+
+
+
+console.log("budget month :" + appData.budgetMonth);
+console.log("budget Day :" + appData.budgetDay);
+
+//  Нет информации нужно ли это     console.log(appData.getTargetMonth);
+
+
 console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());
 console.log("месячный доход :", +money);
 console.log("депозит в банке :" + appData.deposit);
-
 
 
 
