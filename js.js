@@ -17,6 +17,7 @@ let expensesAmount,
     costsFirst3,     
     budgetMonth,
     budgetDay;    
+
 let count;
 let appData = {
     income: {},
@@ -63,10 +64,9 @@ let appData = {
       },
 
       getAccumulatedMonth:function() {
-        accumulatedMonth = money - expensesAmount;
-        budgetMonth=money- expensesAmount,
-        budgetDay=budgetMonth /30;        //1111111
-        expensesAmount=appData.getExpensesMonth();
+        appData.budgetMonth=money- expensesAmount,
+        appData.budgetDay=appData.budgetMonth /30;
+        accumulatedMonth = money - expensesAmount;                                                     
       },
 
       //возвращаем период до цели
@@ -111,12 +111,13 @@ console.log(appData.expenses);
 //лог
 console.log(appData.getAccumulatedMonth);
 console.log(appData.getTargetMonth);
-console.log("сумма обязательных расходов :" + appData.expenses);
+console.log("сумма обязательных расходов :" + appData.expensesMonth);
 console.log("накопления за месяц :" + accumulatedMonth);
 console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());
 console.log("месячный доход :", +money);
 console.log("депозит в банке :" + appData.deposit);
+
 
 
 
