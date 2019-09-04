@@ -51,7 +51,7 @@ let appData = {
           }
 
       let addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую");
-          appData.addExpenses=addExpenses.toUpperCase().split(',');
+          appData.addExpenses=addExpenses.trim().toUpperCase().split(',');
           appData.deposit = confirm("Есть ли у вас депозит в банке?");
 
       let str;
@@ -146,6 +146,3 @@ console.log(appData.addExpenses);
     for (let key in appData) {
          console.log('Наша программа включает в себя данные: ' + key + ': ' + appData[key])
 }
-
-
-
