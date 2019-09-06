@@ -18,7 +18,8 @@ let expensesAmount,
     budgetMonth,
     budgetDay,
     itemIncome,
-    cashIncome;
+    cashIncome,
+    addExpenses;
 
 let count;
 
@@ -42,7 +43,7 @@ let appData = {
           if (confirm("Есть ли у вас дополнительный заработок?")) {
 
             do {itemIncome = prompt("Какой у вас дополнительный заработок?");}
-              while (Number(itemIncome) || itemIncome === null)
+              while (Number(itemIncome) || itemIncome === '' ||  itemIncome === null)
                 
             do {cashIncome = prompt("Сколько в месяц вы на этом зарабатываете?");}  
             while (isNaN(cashIncome) || cashIncome === '' || cashIncome === null){
@@ -50,7 +51,8 @@ let appData = {
             appData.income[itemIncome] = cashIncome;
           }
 
-      let addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую");
+        do {addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую");}
+          while(Number(addExpenses) || addExpenses === '' || addExpenses === null)
           appData.addExpenses=addExpenses.trim().toUpperCase().split(',');
           appData.deposit = confirm("Есть ли у вас депозит в банке?");
 
@@ -61,11 +63,11 @@ let appData = {
            if (i === 0) {
 
         do {costsFirst1 = prompt("Какие обязательные ежемесячные расходы у вас есть?");}
-            while (Number(costsFirst1) || costsFirst1 === null)
+            while (Number(costsFirst1) || costsFirst1 === '' || costsFirst1 === null)
                str = costsFirst1;}
            if (i === 1) {
         do {costsFirst3 = prompt("Какие обязательные ежемесячные расходы у вас есть?");}
-            while (Number(costsFirst3) || costsFirst3 === null)
+            while (Number(costsFirst3) || costsFirst3 === '' || costsFirst3 === null)
                str = costsFirst3;}
         do {
           count = prompt("Во сколько это обойдется?");
@@ -119,7 +121,7 @@ let appData = {
           do {appData.percentDeposit = prompt("Какой годовой процент?", "10"); } 
                   while ( isNaN(appData.percentDeposit) || appData.percentDeposit === '' || appData.percentDeposit === null )
           do {appData.moneyDeposit = prompt ("Какая сумма заложена ?" ," 10000");} 
-                  while (Number(appData.moneyDeposit) || appData.moneyDeposit === null)
+                  while (isNaN(appData.moneyDeposit) || appData.moneyDeposit === '' || appData.moneyDeposit === null)
             
       }
    },
