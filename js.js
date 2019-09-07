@@ -1,9 +1,29 @@
 'use strict'
 
-//запус программы
-start = document.getElementById('start').onclick = function()
-	{
-	alert('Нажата кнопка');
+let start = document.getElementById('start'),
+    btnPlus = document.getElementsByTagName('button'),
+    incomePlus = btnPlus[0],
+    expensesPlus = btnPlus[1],
+    additIncomeItem = document.querySelectorAll('.additional_income_item'),
+    depBox = document.querySelector('#deposit_check'),
+    budgetDayValue = document.getElementsByClassName('budget_day-value')[0],
+    budgetMonthValue = document.getElementsByClassName('budget_month-value')[0],
+    expensesMonthValue = document.getElementsByClassName('expenses_month-value')[0],
+    accumulatedMonthValue = document.getElementsByClassName('accumulated_month-value')[0],
+    additIncomValue = document.getElementsByClassName('additional_income-value')[0],
+    additExpensesValue = document.getElementsByClassName('additional_expenses-value')[0],
+    incomePeriodValue = document.getElementsByClassName('income_period-value')[0],
+    targetMonthValue = document.getElementsByClassName('target_month-value')[0],
+    targetAmount = document.querySelector('target-amount'),
+    salaryAmount = document.querySelector('.salary-amount'),
+    incomeTitle = document.querySelector('.income-title'),
+    incomeAmount = document.querySelector('.income-amount'),
+    expensesTitle = document.querySelector('.expenses-title'),
+    expensesItems = document.querySelectorAll('.expenses-items'),
+    additExpenses = document.querySelector('additional_expenses'),
+    periodSelect = document.querySelector('.period-select'),
+    additExpensesItem = document.querySelector('additional_expenses-item');
+    
 // узнаем бюджет и валидность
 let money,
     start = function () {
@@ -48,28 +68,19 @@ let appData = {
 
             do {itemIncome = prompt("Какой у вас дополнительный заработок?");}
               while (Number(itemIncome) || itemIncome === '' ||  itemIncome === null)
-        //дополнительные доходы доходы      
-        let additIncome = document.querySelectorAll('input')[1];
-               
+
             do {cashIncome = prompt("Сколько в месяц вы на этом зарабатываете?");}  
             while (isNaN(cashIncome) || cashIncome === '' || cashIncome === null){
           };
-      let additIncome1 = document.querySelectorAll('input')[2];
+      
             appData.income[itemIncome] = cashIncome;
           }
           //возможные доходы
-      let incomeFut = document.querySelectorAll('input')[3];
-      let incomeFut1 = document.querySelectorAll('input')[4];
-          //кнопка +
-      let btnPlus = document.getElementsByTagName('Button')[0];
-        console.log(btnPlus);
+      
         do {addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую");}
           while(Number(addExpenses) || addExpenses === '' || addExpenses === null)  
           appData.addExpenses=addExpenses.trim().toUpperCase().split(',');
           appData.deposit = confirm("Есть ли у вас депозит в банке?");
-      //кнопка +
-      let btnPlus1 = document.getElementsByTagName('Button')[1];
-
       let str;
       // цикл,задает вопрос:ответ 2 раза
       let sum = 0;
@@ -136,9 +147,7 @@ let appData = {
                   while ( isNaN(appData.percentDeposit) || appData.percentDeposit === '' || appData.percentDeposit === null )
           do {appData.moneyDeposit = prompt ("Какая сумма заложена ?" ," 10000");} 
                   while (isNaN(appData.moneyDeposit) || appData.moneyDeposit === '' || appData.moneyDeposit === null)
-                  //ЧекБокс Депозит
-                  let depBox= document.querySelectorAll('span')[1];
-                  console.log(depBox);
+                  
                   
       }
    },
@@ -149,32 +158,6 @@ let appData = {
       
       
    };
-      //получаем сторону вывода
-
-      let resultRight=document.querySelectorAll('.result'),
-          resultValue=document.querySelectorAll('input')[13];
-          resultValue=document.querySelectorAll('input')[14];
-          resultValue=document.querySelectorAll('input')[15];
-          resultValue=document.querySelectorAll('input')[16];
-          resultValue=document.querySelectorAll('input')[17];
-          resultValue=document.querySelectorAll('input')[18];
-          resultValue=document.querySelectorAll('input')[19];
-      //получаем сторону ввода
-
-       let  resultLeft = document.querySelectorAll('.data'),
-            resultData = document.querySelectorAll('input')[0];
-            resultData = document.querySelectorAll('input')[5];
-            resultData = document.querySelectorAll('input')[6];
-            resultData = document.querySelectorAll('input')[7];
-            resultData = document.querySelectorAll('input')[8];
-            resultData = document.querySelectorAll('input')[9];
-
-      //получаем ползунок range
-        let range = document.querySelectorAll('.period-select')
-        
-            
-      
-
 appData.asking();
 appData.getExpensesMonth();
 appData.getBudget();
@@ -191,4 +174,5 @@ console.log(appData.addExpenses);
     for (let key in appData) {
          console.log('Наша программа включает в себя данные: ' + key + ': ' + appData[key]) 
     }
-  }
+  
+
