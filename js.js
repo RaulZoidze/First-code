@@ -48,26 +48,30 @@ let appData = {
 
             do {itemIncome = prompt("Какой у вас дополнительный заработок?");}
               while (Number(itemIncome) || itemIncome === '' ||  itemIncome === null)
-        //поле возможные доходы      
-      let additIncome = document.querySelectorAll('additional_income-item');
+        //дополнительные доходы доходы      
+        let additIncome = document.querySelectorAll('input')[1];
                
             do {cashIncome = prompt("Сколько в месяц вы на этом зарабатываете?");}  
             while (isNaN(cashIncome) || cashIncome === '' || cashIncome === null){
-            };
+          };
+      let additIncome1 = document.querySelectorAll('input')[2];
             appData.income[itemIncome] = cashIncome;
           }
-      //кнопка +
-      let btnPlus = document.querySelector('.btn_plus income_add');
-
+          //возможные доходы
+      let incomeFut = document.querySelectorAll('input')[3];
+      let incomeFut1 = document.querySelectorAll('input')[4];
+          //кнопка +
+      let btnPlus = document.getElementsByTagName('Button')[0];
+        console.log(btnPlus);
         do {addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую");}
           while(Number(addExpenses) || addExpenses === '' || addExpenses === null)  
           appData.addExpenses=addExpenses.trim().toUpperCase().split(',');
           appData.deposit = confirm("Есть ли у вас депозит в банке?");
       //кнопка +
-      let btnPlus1 = document.querySelector('btn_plus expenses_add');
+      let btnPlus1 = document.getElementsByTagName('Button')[1];
 
       let str;
-              // цикл,задает вопрос:ответ 2 раза
+      // цикл,задает вопрос:ответ 2 раза
       let sum = 0;
           for (let i = 0; i < 2; i++) {
            if (i === 0) {
@@ -110,8 +114,8 @@ let appData = {
     }
     
   },
-
   //возвращаем уровень дохода
+
       getStatusIncome:function () {
 
         if (appData.budgetMonth >= 800) {
@@ -133,18 +137,47 @@ let appData = {
           do {appData.moneyDeposit = prompt ("Какая сумма заложена ?" ," 10000");} 
                   while (isNaN(appData.moneyDeposit) || appData.moneyDeposit === '' || appData.moneyDeposit === null)
                   //ЧекБокс Депозит
-                  let depBox= document.querySelector('deposit-check');
+                  let depBox= document.querySelectorAll('span')[1];
+                  console.log(depBox);
+                  
       }
    },
       calcSavedMoney :function () {
           return appData.budgetMonth * appData.period;
       }
+
+      
       
    };
+      //получаем сторону вывода
+
+      let resultRight=document.querySelectorAll('.result'),
+          resultValue=document.querySelectorAll('input')[13];
+          resultValue=document.querySelectorAll('input')[14];
+          resultValue=document.querySelectorAll('input')[15];
+          resultValue=document.querySelectorAll('input')[16];
+          resultValue=document.querySelectorAll('input')[17];
+          resultValue=document.querySelectorAll('input')[18];
+          resultValue=document.querySelectorAll('input')[19];
+      //получаем сторону ввода
+
+       let  resultLeft = document.querySelectorAll('.data'),
+            resultData = document.querySelectorAll('input')[0];
+            resultData = document.querySelectorAll('input')[5];
+            resultData = document.querySelectorAll('input')[6];
+            resultData = document.querySelectorAll('input')[7];
+            resultData = document.querySelectorAll('input')[8];
+            resultData = document.querySelectorAll('input')[9];
+
+      //получаем ползунок range
+        let range = document.querySelectorAll('.period-select')
+        
+            
+      
 
 appData.asking();
 appData.getExpensesMonth();
-appData.getBudget();    //GETBUDGET
+appData.getBudget();
 appData.getTargetMonth();
 appData.getStatusIncome();
 appData.getInfoDeposit();
