@@ -1,7 +1,10 @@
 'use strict'
 
+//запус программы
+start = document.getElementById('start').onclick = function()
+	{
+	alert('Нажата кнопка');
 // узнаем бюджет и валидность
-
 let money,
     start = function () {
       while (isNaN(money) || money === '' || money === null){
@@ -9,6 +12,7 @@ let money,
       };
     };
 start();
+
 
 let expensesAmount,
     accumulatedMonth,
@@ -44,17 +48,23 @@ let appData = {
 
             do {itemIncome = prompt("Какой у вас дополнительный заработок?");}
               while (Number(itemIncome) || itemIncome === '' ||  itemIncome === null)
-                
+        //поле возможные доходы      
+      let additIncome = document.querySelectorAll('additional_income-item');
+               
             do {cashIncome = prompt("Сколько в месяц вы на этом зарабатываете?");}  
             while (isNaN(cashIncome) || cashIncome === '' || cashIncome === null){
             };
             appData.income[itemIncome] = cashIncome;
           }
+      //кнопка +
+      let btnPlus = document.querySelector('.btn_plus income_add');
 
         do {addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую");}
-          while(Number(addExpenses) || addExpenses === '' || addExpenses === null)
+          while(Number(addExpenses) || addExpenses === '' || addExpenses === null)  
           appData.addExpenses=addExpenses.trim().toUpperCase().split(',');
           appData.deposit = confirm("Есть ли у вас депозит в банке?");
+      //кнопка +
+      let btnPlus1 = document.querySelector('btn_plus expenses_add');
 
       let str;
               // цикл,задает вопрос:ответ 2 раза
@@ -115,17 +125,17 @@ let appData = {
           return ("Что то пошло не так");
       }
    },
-
+   //депозит 
       getInfoDeposit: function () {
         if (appData.deposit ) {  
           do {appData.percentDeposit = prompt("Какой годовой процент?", "10"); } 
                   while ( isNaN(appData.percentDeposit) || appData.percentDeposit === '' || appData.percentDeposit === null )
           do {appData.moneyDeposit = prompt ("Какая сумма заложена ?" ," 10000");} 
                   while (isNaN(appData.moneyDeposit) || appData.moneyDeposit === '' || appData.moneyDeposit === null)
-            
+                  //ЧекБокс Депозит
+                  let depBox= document.querySelector('deposit-check');
       }
    },
-
       calcSavedMoney :function () {
           return appData.budgetMonth * appData.period;
       }
@@ -146,5 +156,6 @@ console.log(appData.getStatusIncome());
 console.log(appData.addExpenses);
 
     for (let key in appData) {
-         console.log('Наша программа включает в себя данные: ' + key + ': ' + appData[key])
-}
+         console.log('Наша программа включает в себя данные: ' + key + ': ' + appData[key]) 
+    }
+  }
