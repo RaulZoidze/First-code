@@ -25,9 +25,11 @@ chapter[1].insertBefore(level[12],level[10]);
 chapter[1].insertBefore(level[14],level[10]);
 console.log(chapter,level);
     //книга 5
+    
 chapter[4].insertBefore(level[45],level[38]);
 chapter[4].insertBefore(level[39],level[38]);
 chapter[4].insertBefore(level[40],level[38]);
+chapter[4].insertBefore(level[41],level[44]);
     //книга 6
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //добавляем главу книге 6
