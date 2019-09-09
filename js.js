@@ -23,6 +23,7 @@ let chapter = document.querySelectorAll('ul'),
     //книга 2
 chapter[1].insertBefore(level[12],level[10]);
 chapter[1].insertBefore(level[14],level[10]);
+chapter[1].insertBefore(level[8],level[16]);
 console.log(chapter,level);
     //книга 5
     
@@ -36,3 +37,5 @@ chapter[4].insertBefore(level[41],level[44]);
 let clone = level[56].cloneNode();
     chapter[5].appendChild(clone).textContent='Глава 8: За пределами ES6';
 //....
+
+
