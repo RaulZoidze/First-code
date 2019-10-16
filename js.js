@@ -17,7 +17,6 @@ let  today = new Date(),
     }
 
     alert ( greeting ) ;
-
     console.log ( greeting );
 
 
